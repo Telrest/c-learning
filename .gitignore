@@ -1,0 +1,10 @@
+build/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.idb
+.vs/
+.env
+*.code-workspace
+.vscode/c_cpp_properties.json

@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C: build active file",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/build.ps1", "-Source", "${file}"],
+      "problemMatcher": ["$msCompile"],
+      "group": {"kind": "build", "isDefault": true},
+      "presentation": {"reveal": "always", "panel": "shared", "clear": true}
+    },
+    {
+      "label": "C: run active file",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/build.ps1", "-Source", "${file}", "-Run"],
+      "problemMatcher": ["$msCompile"],
+      "presentation": {"reveal": "always", "panel": "shared", "focus": true, "clear": true}
+    }
+  ]
+}
