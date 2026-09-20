@@ -1,9 +1,24 @@
 #include <stdio.h>
 
-/* Starter example prepared with AI assistance. */
+double half(int number) { return number / 2.0; }
+
 int main(void)
 {
-    printf("Hello, C!\n");
-    printf("Today I am starting to learn programming.\n");
+    int number;
+
+    printf("请输入一个整数：");
+
+
+    if (scanf("%d", &number) != 1)
+    {
+        printf("输入错误，请输入一个整数。\n");
+
+        return 1;
+    }
+
+    double result = half(number);
+
+    printf("对半分:%.2f\n", result);
+
     return 0;
 }

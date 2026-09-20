@@ -2,21 +2,75 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "C: build active file",
+      "label": "C: build debug",
       "type": "process",
-      "command": "powershell.exe",
-      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/build.ps1", "-Source", "${file}"],
-      "problemMatcher": ["$msCompile"],
-      "group": {"kind": "build", "isDefault": true},
-      "presentation": {"reveal": "always", "panel": "shared", "clear": true}
+      "command": "C:/msys64/ucrt64/bin/gcc.exe",
+      "args": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-finput-charset=UTF-8",
+        "-fexec-charset=UTF-8",
+        "-O0",
+        "-g3",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     },
     {
-      "label": "C: run active file",
+      "label": "C: build release",
       "type": "process",
-      "command": "powershell.exe",
-      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/build.ps1", "-Source", "${file}", "-Run"],
-      "problemMatcher": ["$msCompile"],
-      "presentation": {"reveal": "always", "panel": "shared", "focus": true, "clear": true}
+      "command": "C:/msys64/ucrt64/bin/gcc.exe",
+      "args": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-pedantic",
+        "-finput-charset=UTF-8",
+        "-fexec-charset=UTF-8",
+        "-O2",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+        }
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ]
 }
