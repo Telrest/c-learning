@@ -8,7 +8,6 @@ int main(void)
 
     printf("请输入一个整数：");
 
-
     if (scanf("%d", &number) != 1)
     {
         printf("输入错误，请输入一个整数。\n");
